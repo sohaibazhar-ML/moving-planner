@@ -1,0 +1,56 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// User accounts (Supabase auth)
+model User {
+  id                String   @id @default(uuid())
+  email             String   @unique
+  preferredLanguage String   @default("en")
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@map("users")
+}
+
+// Document checklist items
+model DocumentItem {
+  id           String                    @id @default(uuid())
+  slug         String                    @unique
+  category     String?
+  order        Int                       @default(0)
+  isActive     Boolean                   @default(true)
+  createdAt    DateTime                  @default(now())
+  updatedAt    DateTime                  @updatedAt
+  translations DocumentItemTranslation[]
+
+  @@map("document_items")
+}
+
+// Localized content for document items
+model DocumentItemTranslation {
+  id                         String       @id @default(uuid())
+  documentItemId             String
+  language                   String
+  title                      String
+  description                String       @db.Text
+  whyNeeded                  String       @db.Text
+  guidanceWhereToApply       String?      @db.Text
+  guidanceRequirements       String?      @db.Text
+  guidanceCommonMistakes     String?      @db.Text
+  createdAt                  DateTime     @default(now())
+  updatedAt                  DateTime     @updatedAt
+  documentItem               DocumentItem @relation(fields: [documentItemId], references: [id], onDelete: Cascade)
+
+  @@unique([documentItemId, language])
+  @@map("document_item_translations")
+}
+

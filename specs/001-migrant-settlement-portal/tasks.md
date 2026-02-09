@@ -6,11 +6,11 @@
 
 **Purpose**: Initialize the Next.js + TypeScript project and baseline tooling.
 
-- [ ] T001 Initialize Next.js + TypeScript app at repo root (creates `package.json`, `app/`, `next.config.*`)
-- [ ] T002 [P] Add UI styling setup for responsive design (e.g., Tailwind) in `tailwind.config.*`, `postcss.config.*`, `app/globals.css`
-- [ ] T003 [P] Add `.env.example` with required keys in `.env.example`
-- [ ] T004 [P] Add basic README quickstart pointing to `specs/001-migrant-settlement-portal/quickstart.md` in `README.md`
-- [ ] T005 [P] Add code quality scripts (lint/typecheck) in `package.json`
+- [x] T001 Initialize Next.js + TypeScript app at repo root (creates `package.json`, `app/`, `next.config.*`)
+- [x] T002 [P] Add UI styling setup for responsive design (e.g., Tailwind) in `tailwind.config.*`, `postcss.config.*`, `app/globals.css`
+- [x] T003 [P] Add `.env.example` with required keys in `.env.example`
+- [x] T004 [P] Add basic README quickstart pointing to `specs/001-migrant-settlement-portal/quickstart.md` in `README.md`
+- [x] T005 [P] Add code quality scripts (lint/typecheck) in `package.json`
 
 ---
 
@@ -18,14 +18,14 @@
 
 **Purpose**: Core infrastructure that MUST be complete before user stories.
 
-- [ ] T006 Create Prisma setup and client helper in `prisma/schema.prisma` and `lib/prisma.ts`
-- [ ] T007 [P] Create Supabase client helpers (browser + server) in `lib/supabase/client.ts` and `lib/supabase/server.ts`
-- [ ] T008 Create data tables for documents and translations per `data-model.md` in `prisma/schema.prisma`
-- [ ] T009 Create initial migration and seed scaffolding in `prisma/migrations/*` and `prisma/seed.ts`
-- [ ] T010 [P] Add minimal i18n scaffolding (supported languages + UI dictionary loader) in `lib/i18n.ts`
-- [ ] T011 [P] Create shared layout + responsive navbar shell in `app/layout.tsx` and `components/Navbar.tsx`
-- [ ] T012 [P] Implement language switcher UI + persistence (query param or cookie) in `components/LanguageSwitcher.tsx` and `lib/i18n.ts`
-- [ ] T013 Add global loading/empty/error UI primitives in `components/LoadingState.tsx` and `components/EmptyState.tsx`
+- [x] T006 Create Prisma setup and client helper in `prisma/schema.prisma` and `lib/prisma.ts`
+- [x] T007 [P] Create Supabase client helpers (browser + server) in `lib/supabase/client.ts` and `lib/supabase/server.ts`
+- [x] T008 Create data tables for documents and translations per `data-model.md` in `prisma/schema.prisma`
+- [x] T009 Create initial migration and seed scaffolding in `prisma/migrations/*` and `prisma/seed.ts`
+- [x] T010 [P] Add minimal i18n scaffolding (supported languages + UI dictionary loader) in `lib/i18n.ts`
+- [x] T011 [P] Create shared layout + responsive navbar shell in `app/layout.tsx` and `components/Navbar.tsx`
+- [x] T012 [P] Implement language switcher UI + persistence (query param or cookie) in `components/LanguageSwitcher.tsx` and `lib/i18n.ts`
+- [x] T013 Add global loading/empty/error UI primitives in `components/LoadingState.tsx` and `components/EmptyState.tsx`
 
 **Checkpoint**: Foundation ready — app boots locally, environment variables documented, DB schema defined, and shared UI shell exists.
 
@@ -39,14 +39,14 @@
 
 ### Implementation
 
-- [ ] T014 [US1] Build landing page sections (hero, “How it works”, CTA) in `app/page.tsx`
-- [ ] T015 [US1] Create documents checklist page route in `app/documents/page.tsx`
-- [ ] T016 [P] [US1] Create documents list + item details components in `components/DocumentList.tsx` and `components/DocumentItemCard.tsx`
-- [ ] T017 [US1] Implement public documents API handler per contract in `app/api/documents/route.ts`
-- [ ] T018 [US1] Wire documents page to fetch `/api/documents?lang=...` and render loading/empty/error states in `app/documents/page.tsx`
-- [ ] T019 [US1] Implement “unsupported language” handling (defaults to English) in `lib/i18n.ts` and `app/api/documents/route.ts`
-- [ ] T020 [US1] Add seed data for at least 4 languages (en/de/fr/it) in `prisma/seed.ts`
-- [ ] T021 [US1] Ensure mobile-first layout and accessible interactions (keyboard focus, headings, contrast) in `app/page.tsx`, `app/documents/page.tsx`, `components/*`
+- [x] T014 [US1] Build landing page sections (hero, "How it works", CTA) in `app/page.tsx`
+- [x] T015 [US1] Create documents checklist page route in `app/documents/page.tsx`
+- [x] T016 [P] [US1] Create documents list + item details components in `components/DocumentList.tsx` and `components/DocumentItemCard.tsx`
+- [x] T017 [US1] Implement public documents API handler per contract in `app/api/documents/route.ts`
+- [x] T018 [US1] Wire documents page to fetch `/api/documents?lang=...` and render loading/empty/error states in `app/documents/page.tsx`
+- [x] T019 [US1] Implement "unsupported language" handling (defaults to English) in `lib/i18n.ts` and `app/api/documents/route.ts`
+- [x] T020 [US1] Add seed data for at least 4 languages (en/de/fr/it) in `prisma/seed.ts`
+- [x] T021 [US1] Ensure mobile-first layout and accessible interactions (keyboard focus, headings, contrast) in `app/page.tsx`, `app/documents/page.tsx`, `components/*`
 
 **Checkpoint**: US1 complete — landing + documents checklist works for anonymous users, is responsive, and supports language switching.
 
@@ -60,12 +60,12 @@
 
 ### Implementation
 
-- [ ] T022 [US2] Create auth route group and pages in `app/(auth)/login/page.tsx`, `app/(auth)/signup/page.tsx`, `app/(auth)/forgot-password/page.tsx`
-- [ ] T023 [US2] Implement signup flow using Supabase in `app/(auth)/signup/page.tsx` and `lib/supabase/client.ts`
-- [ ] T024 [US2] Implement login flow using Supabase in `app/(auth)/login/page.tsx` and `lib/supabase/client.ts`
-- [ ] T025 [US2] Implement password reset request flow in `app/(auth)/forgot-password/page.tsx`
-- [ ] T026 [US2] Add logout action and navbar state (show login/logout) in `components/Navbar.tsx` and `lib/supabase/*`
-- [ ] T027 [US2] Ensure auth errors are user-friendly and do not leak sensitive details in `app/(auth)/*`
+- [x] T022 [US2] Create auth route group and pages in `app/(auth)/login/page.tsx`, `app/(auth)/signup/page.tsx`, `app/(auth)/forgot-password/page.tsx`
+- [x] T023 [US2] Implement signup flow using Supabase in `app/(auth)/signup/page.tsx` and `lib/supabase/client.ts`
+- [x] T024 [US2] Implement login flow using Supabase in `app/(auth)/login/page.tsx` and `lib/supabase/client.ts`
+- [x] T025 [US2] Implement password reset request flow in `app/(auth)/forgot-password/page.tsx`
+- [x] T026 [US2] Add logout action and navbar state (show login/logout) in `components/Navbar.tsx` and `lib/supabase/*`
+- [x] T027 [US2] Ensure auth errors are user-friendly and do not leak sensitive details in `app/(auth)/*`
 
 **Checkpoint**: US2 complete — auth flows work; documents remain public; UI stays responsive on mobile.
 
@@ -75,11 +75,11 @@
 
 **Purpose**: Hardening, UX refinement, and documentation completeness.
 
-- [ ] T028 [P] Add input validation and rate-limit friendly UX for auth forms in `app/(auth)/*`
-- [ ] T029 [P] Add better empty state messaging when documents are missing in `app/documents/page.tsx` and `components/EmptyState.tsx`
-- [ ] T030 Improve performance (avoid layout shift, optimize images/fonts) in `app/layout.tsx` and `app/page.tsx`
-- [ ] T031 Security pass: confirm env vars usage and no secrets in repo in `.env.example` and `README.md`
-- [ ] T032 Update `specs/001-migrant-settlement-portal/quickstart.md` with exact commands used in this repo (install, migrate, seed, dev) in `specs/001-migrant-settlement-portal/quickstart.md`
+- [x] T028 [P] Add input validation and rate-limit friendly UX for auth forms in `app/(auth)/*`
+- [x] T029 [P] Add better empty state messaging when documents are missing in `app/documents/page.tsx` and `components/EmptyState.tsx`
+- [x] T030 Improve performance (avoid layout shift, optimize images/fonts) in `app/layout.tsx` and `app/page.tsx`
+- [x] T031 Security pass: confirm env vars usage and no secrets in repo in `.env.example` and `README.md`
+- [x] T032 Update `specs/001-migrant-settlement-portal/quickstart.md` with exact commands used in this repo (install, migrate, seed, dev) in `specs/001-migrant-settlement-portal/quickstart.md`
 
 ---
 
