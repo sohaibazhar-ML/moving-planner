@@ -1,0 +1,83 @@
+openapi: 3.0.3
+info:
+  title: Migrant Settlement Portal API (MVP)
+  version: 1.0.0
+  description: API contract for the generalized documents checklist.
+paths:
+  /api/documents:
+    get:
+      summary: List document checklist items
+      description: >
+        Returns the generalized checklist of commonly required documents/steps,
+        localized to the requested language when available.
+      parameters:
+        - in: query
+          name: lang
+          required: false
+          schema:
+            type: string
+            description: Language code (e.g., en, de, fr, it). Defaults to en.
+      responses:
+        "200":
+          description: A list of checklist items
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DocumentsListResponse"
+        "400":
+          description: Invalid request (e.g., unsupported language code)
+        "500":
+          description: Unexpected error
+components:
+  schemas:
+    DocumentsListResponse:
+      type: object
+      required: [items]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/DocumentItem"
+    DocumentItem:
+      type: object
+      required:
+        - id
+        - slug
+        - title
+        - description
+        - whyNeeded
+      properties:
+        id:
+          type: string
+          description: Unique identifier
+        slug:
+          type: string
+          description: Stable identifier suitable for URLs
+        category:
+          type: string
+          nullable: true
+          description: Optional grouping label
+        order:
+          type: integer
+          nullable: true
+          description: Optional sort order
+        title:
+          type: string
+        description:
+          type: string
+        whyNeeded:
+          type: string
+        guidance:
+          type: object
+          nullable: true
+          properties:
+            whereToApply:
+              type: string
+              nullable: true
+            requirements:
+              type: string
+              nullable: true
+            commonMistakes:
+              type: string
+              nullable: true
+

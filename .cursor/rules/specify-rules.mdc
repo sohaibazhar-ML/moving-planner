@@ -1,0 +1,30 @@
+﻿# moving-planner Development Guidelines
+
+Auto-generated from all feature plans. Last updated: 2026-02-09
+
+## Active Technologies
+
+- TypeScript (Next.js) + Next.js, React, Supabase, Prisma (001-migrant-settlement-portal)
+
+## Project Structure
+
+```text
+backend/
+frontend/
+tests/
+```
+
+## Commands
+
+npm test; npm run lint
+
+## Code Style
+
+TypeScript (Next.js): Follow standard conventions
+
+## Recent Changes
+
+- 001-migrant-settlement-portal: Added TypeScript (Next.js) + Next.js, React, Supabase, Prisma
+
+<!-- MANUAL ADDITIONS START -->
+<!-- MANUAL ADDITIONS END -->
